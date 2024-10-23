@@ -14,7 +14,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void _register() async {
     final response = await http.post(
-      Uri.parse('https://your-api.com/api/register'),
+      Uri.parse('http://localhost:3000/register'),
       body: {
         'username': _usernameController.text,
         'password': _passwordController.text,
@@ -26,7 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } else {
       // Handle error
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Registration failed')),
+        const SnackBar(content: Text('Registration failed')),
       );
     }
   }
@@ -34,24 +34,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Register')),
+      appBar: AppBar(title: const Text('Register')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _usernameController,
-              decoration: InputDecoration(labelText: 'Username'),
+              decoration: const InputDecoration(labelText: 'Username'),
             ),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _register,
-              child: Text('Register'),
+              child: const Text('Register'),
             ),
           ],
         ),

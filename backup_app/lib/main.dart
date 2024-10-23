@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/backups_screen.dart';
 import 'screens/backup_details_screen.dart';
 
-void main() {
+Future<void> main() async {
+   await initLocalStorage();
   runApp(const MyApp());
 }
 
